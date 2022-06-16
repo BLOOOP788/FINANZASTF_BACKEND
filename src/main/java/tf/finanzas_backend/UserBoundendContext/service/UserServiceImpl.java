@@ -46,11 +46,11 @@ public class UserServiceImpl implements UserService {
         Set<ConstraintViolation<User>> violations =validator.validate(user);
         if(!violations.isEmpty())
             throw new ResourceValidationException(ENTITY,violations);
-        User driverWithPassword=userRepository.findByEmail(user.getEmail());
-        if(driverWithPassword!=null){
+        User driverWithEmail=userRepository.findByEmail(user.getEmail());
+
+        if(driverWithEmail!=null){
             throw new ResourceValidationException(ENTITY,"A user with the same Email already exist");
         }
-
         return userRepository.save(user);
     }
 
