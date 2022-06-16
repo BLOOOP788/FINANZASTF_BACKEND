@@ -33,6 +33,6 @@ public class User extends AuditModel {
 
     @NotNull
     @NotBlank
-    @Column(unique = true)
+    @Column()
     private  String password;
 }
