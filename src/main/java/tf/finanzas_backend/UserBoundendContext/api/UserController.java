@@ -15,7 +15,7 @@ import tf.finanzas_backend.UserBoundendContext.resource.UserResource;
 
 @Tag(name="user")
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/v1/traveler")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class UserController {
     private final UserService userService;
