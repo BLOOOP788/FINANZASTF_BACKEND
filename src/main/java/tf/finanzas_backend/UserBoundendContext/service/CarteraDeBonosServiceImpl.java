@@ -92,11 +92,11 @@ public class CarteraDeBonosServiceImpl implements CarteraDeBonoService {
 
     @Override
     public ResponseEntity<?> delete(Long userId, Long CarteraDeBonoId) {
-        return carteraDeBonoRepository.findByIdAndUserId(userId,CarteraDeBonoId).map(comment ->
-        {
-            carteraDeBonoRepository.delete(comment);
-            return ResponseEntity.ok().build();
-        }).orElseThrow(()->new ResourceNotFoundException(ENTITY,CarteraDeBonoId));
 
+        //corregir
+        return carteraDeBonoRepository.findById(CarteraDeBonoId).map(driver->{
+            carteraDeBonoRepository.delete(driver);
+            return ResponseEntity.ok().build();
+        }).orElseThrow(()->new ResourceNotFoundException(ENTITY,userId));
     }
 }
